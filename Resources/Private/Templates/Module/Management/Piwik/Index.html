@@ -1,0 +1,85 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Piwik Configuration</f:section>
+
+<f:section name="Content">
+    <f:form action="update" name="piwik" object="{piwikSettings}">
+        <fieldset>
+            <div class="neos-row-fluid">
+                <fieldset class="neos-span5">
+                    <legend>Global Settings</legend>
+                    <div class="neos-control-group">
+                        <label class="neos-control-label" for="host">Host</label>
+                        <div class="neos-controls">
+                            <f:form.textfield property="host" id="host" class="neos-span12" required="true" />
+                        </div>
+                    </div>
+                    <div class="neos-control-group">
+                        <label class="neos-control-label" for="token_auth">Token</label>
+                        <div class="neos-controls">
+                            <f:form.textfield property="token_auth" id="token_auth" class="neos-span12" required="true" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="neos-span5 neos-offset1">
+                    <legend>Site Settings</legend>
+                    <table class="neos-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th colspan="2">Url</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <f:for each="{piwikSites}" as="piwikSite" key="number">
+                            <tr>
+                                <td>{piwikSite.idsite}</td>
+                                <td>{piwikSite.name}</td>
+                                <td>{piwikSite.main_url}</td>
+                                <td class="neos-action">
+                                    <div class="neos-pull-right">
+                                        <f:link.action action="editSite" arguments="{piwikSite: piwikSite}" class="neos-button neos-button-primary" title="Click to edit">
+                                            <i class="icon-pencil icon-white"></i>
+                                        </f:link.action>
+                                        <button class="neos-button neos-button-danger" title="Click to delete" data-toggle="modal" href="#{piwikSite.idsite}">
+                                            <i class="icon-trash icon-white"></i>
+                                        </button>
+                                        <div class="neos-hide" id="{piwikSite.idsite}">
+                                            <div class="neos-modal">
+                                                <div class="neos-modal-header">
+                                                    <button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
+                                                    <div class="neos-header">Do you really want to delete "{piwikSite.name}"? This action cannot be undone.</div>
+                                                </div>
+                                                <div class="neos-modal-footer">
+                                                    <a href="#" class="neos-button" data-dismiss="modal">Cancel</a>
+                                                    <f:link.action action="deleteSite" arguments="{idsite: piwikSite.idsite}" class="neos-button neos-button-danger" title="Delete this site">
+                                                        Yes, delete the site
+                                                    </f:link.action>
+                                                </div>
+                                            </div>
+                                            <div class="neos-modal-backdrop neos-in"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </f:for>
+                        </tbody>
+                    </table>
+                    <f:if condition="{settings.host}">
+                        <f:if condition="{settings.token_auth}">
+                            <div class="neos-pull-right">
+                                <f:link.action action="newSite" class="neos-button neos-button-primary" title="Click to create a new domain">Add Piwik Site</f:link.action>
+                            </div>
+                        </f:if>
+                    </f:if>
+                </fieldset>
+            </div>
+
+            <div class="neos-footer">
+                <f:link.action action="index" class="neos-button">Cancel</f:link.action>
+                <f:form.submit value="Save" class="neos-button neos-button-primary" />
+        </fieldset>
+    </f:form>
+    <f:form action="index" id="postHelper" method="post"></f:form>
+</f:section>

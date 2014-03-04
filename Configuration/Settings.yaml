@@ -1,0 +1,19 @@
+
+MapSeven:
+  Piwik:
+    host:
+    token_auth:
+TYPO3:
+  Neos:
+    modules:
+      management:
+        submodules:
+          piwik:
+            label: Piwik
+            controller: \MapSeven\Piwik\Controller\Module\Management\PiwikController
+            description: 'Configure Piwik for your Domains'
+            icon: icon-bar-chart
+            actions:
+              index:
+                label: 'Configure piwik'
+                title: 'Configure piwik'

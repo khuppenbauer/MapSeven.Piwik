@@ -1,0 +1,7 @@
+page.body.content {
+	piwik = TypoScript:Template {
+		templatePath = 'resource://MapSeven.Piwik/Private/Templates/TypoScriptObjects/Piwik.html'
+		piwikHost = ${q(site).property('piwikHost')}
+		piwikSite = ${q(site).property('piwikSite')}
+	}
+}

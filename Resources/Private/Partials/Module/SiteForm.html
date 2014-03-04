@@ -1,0 +1,90 @@
+<div class="neos-row-fluid neos-module-container">
+    <fieldset class="neos-span5">
+        <legend>Piwik Site {name}</legend>
+        <f:form.hidden name="piwikSite[type]" value="{type}" />
+        <f:form.hidden name="piwikSite[startDate]" value="{ts_created}" />
+        <f:form.hidden name="piwikSite[group]" value="{group}" />
+        <f:form.hidden name="piwikSite[excludedUserAgents]" value="{excluded_user_agents}" />
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="name">Name</label>
+            <div class="neos-controls">
+                <f:form.textfield name="piwikSite[siteName]" value="{name}" id="name" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="main_url">Url</label>
+            <div class="neos-controls">
+                <f:form.textarea name="piwikSite[urls]" value="{main_url}" id="main_url" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="keep_url_fragment">keep_url_fragment</label>
+            <div class="neos-controls">
+                <f:form.checkbox name="piwikSite[keepURLFragments]" value="{keep_url_fragment}" id="keep_url_fragment" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="excluded_ips">excluded_ips</label>
+            <div class="neos-controls">
+                <f:form.textarea name="piwikSite[excludedIps]" value="{excluded_ips}" id="excluded_ips" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="excluded_parameters">excluded_parameters</label>
+            <div class="neos-controls">
+                <f:form.textarea name="piwikSite[excludedQueryParameters]" value="{excluded_parameters}" id="excluded_parameters" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="siteSearch">Suche</label>
+            <div class="neos-controls">
+                <f:form.checkbox name="piwikSite[siteSearch]" value="{sitesearch}" id="sitesearch" checked="{f:if(condition: sitesearch, then: 'checked')}" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="sitesearch_keyword_parameters">sitesearch_keyword_parameters</label>
+            <div class="neos-controls">
+                <f:form.textfield name="piwikSite[searchKeywordParameters]" value="{sitesearch_keyword_parameters}" id="sitesearch_keyword_parameters" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="sitesearch_category_parameters">sitesearch_category_parameters</label>
+            <div class="neos-controls">
+                <f:form.textfield name="piwikSite[searchCategoryParameters]" value="{sitesearch_category_parameters}" id="sitesearch_category_parameters" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="ecommerce">E-Commerce</label>
+            <div class="neos-controls">
+                <f:form.checkbox name="piwikSite[ecommerce]" value="{ecommerce}" id="ecommerce" checked="{f:if(condition: ecommerce, then: 'checked')}" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="timezone">timezone</label>
+            <div class="neos-controls">
+                <f:form.textfield name="piwikSite[timezone]" value="{timezone}" id="timezone" class="neos-span12" />
+            </div>
+        </div>
+
+        <div class="neos-control-group">
+            <label class="neos-control-label" for="currency">currency</label>
+            <div class="neos-controls">
+                <f:form.textfield name="piwikSite[currency]" value="{currency}" id="currency" class="neos-span12" />
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="neos-footer">
+    <f:link.action action="index" class="neos-button">Cancel</f:link.action>
+    <f:form.submit value="Save Site" class="neos-button neos-button-primary" />
+</div>

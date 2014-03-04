@@ -1,0 +1,11 @@
+<f:layout name="Default" />
+
+<f:section name="Title">
+    <h2>New Piwik Site</h2>
+</f:section>
+
+<f:section name="Content">
+    <f:form action="createSite" name="piwikSite">
+        <f:render partial="Module/SiteForm" arguments="{piwikSite}" />
+    </f:form>
+</f:section>

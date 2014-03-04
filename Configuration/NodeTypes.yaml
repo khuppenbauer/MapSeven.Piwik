@@ -1,0 +1,26 @@
+##
+# Adjust the "Row" node type:
+# Disable some of the layout options, override labels and set the default layout
+#
+'TYPO3.Neos.NodeTypes:Page':
+  ui:
+    inspector:
+      groups:
+        piwik:
+          label: 'Piwik'
+          position: 1100
+  properties:
+    piwikHost:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Piwik Host'
+        inspector:
+          group: 'piwik'
+    piwikSite:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Piwik Site'
+        inspector:
+          group: 'piwik'
