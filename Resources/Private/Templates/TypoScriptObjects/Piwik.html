@@ -1,16 +1,20 @@
-<!-- Piwik -->
-{namespace piwik=MapSeven\Piwik\ViewHelpers}
-<script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-
-    (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://{piwikHost}/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "{piwikSite}"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-    })();
-</script>
-<!-- End Piwik Code -->
+<f:security.ifAccess resource="TYPO3_Neos_Backend_GeneralAccess">
+	<f:then></f:then>
+	<f:else>
+		<!-- Piwik -->
+		<script type="text/javascript">
+		    var _paq = _paq || [];
+		    _paq.push(["trackPageView"]);
+		    _paq.push(["enableLinkTracking"]);
+		
+		    (function() {
+		        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://{piwikHost}/";
+		        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+		        _paq.push(["setSiteId", "{piwikSite}"]);
+		        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+		        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+		    })();
+		</script>
+		<!-- End Piwik Code -->
+	</f:else>
+</f:security.ifAccess>

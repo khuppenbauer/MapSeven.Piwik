@@ -5,6 +5,10 @@ MapSeven:
     token_auth:
 TYPO3:
   Neos:
+    typoScript:
+      autoInclude:
+          # auto-include "Private/Resources/TypoScript/Root.ts2" from this package!
+        'MapSeven.Piwik': TRUE
     modules:
       management:
         submodules:

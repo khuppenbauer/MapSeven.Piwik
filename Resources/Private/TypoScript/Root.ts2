@@ -1,0 +1,8 @@
+page.body {
+	javascripts.piwik = TYPO3.TypoScript:Template {
+		@position = 'end'
+		templatePath = 'resource://MapSeven.Piwik/Private/Templates/TypoScriptObjects/Piwik.html'
+		piwikHost = ${String.replace(q(site).property('piwikHost'), ['http://', 'https://'], '')}
+		piwikSite = ${q(site).property('piwikSite')}
+	}
+}
