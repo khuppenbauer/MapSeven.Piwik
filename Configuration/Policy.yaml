@@ -1,12 +1,10 @@
-#                                                                        #
-# Security policy for the MapSeven Piwik package                         #
-#                                                                        #
-
-resources:
-  methods:
-    MapSeven_Piwik_Backend_Module_Management_Piwik: 'method(MapSeven\Piwik\Controller\Module\Management\PiwikController->(index|update|editSite|newSite|createSite|deleteSite|updateSite)Action())'
-
-acls:
-  Everybody:
-    methods:
-      MapSeven_Piwik_Backend_Module_Management_Piwik: GRANT
+privilegeTargets:
+  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    MapSeven_Piwik_Backend_Module_Management_Piwik:
+      matcher: method(MapSeven\Piwik\Controller\Module\Management\PiwikController->(index|update|editSite|newSite|createSite|deleteSite|updateSite)Action())
+roles:
+  'TYPO3.Neos:Administrator':
+    privileges:
+      -
+        privilegeTarget: MapSeven_Piwik_Backend_Module_Management_Piwik
+        permission: GRANT
