@@ -89,10 +89,9 @@ class PiwikController extends AbstractModuleController {
 	 * @return void
 	 */
 	public function updateAction(array $piwik) {
-		$configurationPath = $this->packageManager->getPackage('MapSeven.Piwik')->getConfigurationPath();
-		$settings = $this->configurationSource->load($configurationPath . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
-		$settings = Arrays::setValueByPath($settings, 'MapSeven.Piwik.host', $piwik['host']);
-		$this->configurationSource->save($configurationPath . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, $settings);
+		$settings = $this->configurationSource->load(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
+		$settings = Arrays::setValueByPath($settings, 'MapSeven.Piwik', $piwik);
+		$this->configurationSource->save(FLOW_PATH_CONFIGURATION . ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, $settings);
 		$this->configurationManager->flushConfigurationCache();
 		$this->redirect('index');
 	}
