@@ -5,9 +5,6 @@ MapSeven:
     token_auth: null
 Neos:
   Neos:
-    typoScript:
-      autoInclude:
-        MapSeven.Piwik: true
     modules:
       management:
         submodules:
@@ -20,3 +17,6 @@ Neos:
               index:
                 label: 'Configure piwik'
                 title: 'Configure piwik'
+    fusion:
+      autoInclude:
+        MapSeven.Piwik: true
