@@ -3,7 +3,7 @@ privilegeTargets:
     MapSeven_Piwik_Backend_Module_Management_Piwik:
       matcher: method(MapSeven\Piwik\Controller\Module\Management\PiwikController->(index|update|editSite|newSite|createSite|deleteSite|updateSite)Action())
 roles:
-  'TYPO3.Neos:Administrator':
+  'Neos.Neos:Administrator':
     privileges:
       -
         privilegeTarget: MapSeven_Piwik_Backend_Module_Management_Piwik

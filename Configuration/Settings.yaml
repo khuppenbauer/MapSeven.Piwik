@@ -1,14 +1,13 @@
 
 MapSeven:
   Piwik:
-    host:
-    token_auth:
-TYPO3:
+    host: null
+    token_auth: null
+Neos:
   Neos:
     typoScript:
       autoInclude:
-          # auto-include "Private/Resources/TypoScript/Root.ts2" from this package!
-        'MapSeven.Piwik': TRUE
+        MapSeven.Piwik: true
     modules:
       management:
         submodules:

@@ -13,7 +13,7 @@ use Neos\Flow\Package\PackageManagerInterface;
 use Neos\Utility\Arrays;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
-use TYPO3\Neos\Controller\Module\AbstractModuleController;
+use Neos\Neos\Controller\Module\AbstractModuleController;
 
 /**
  * Piwik Site Management Module Controller
