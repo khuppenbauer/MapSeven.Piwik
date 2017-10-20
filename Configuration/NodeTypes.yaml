@@ -2,7 +2,7 @@
 # Adjust the "Row" node type:
 # Disable some of the layout options, override labels and set the default layout
 #
-'TYPO3.Neos.NodeTypes:Page':
+'Neos.NodeTypes:Page':
   ui:
     inspector:
       groups:
